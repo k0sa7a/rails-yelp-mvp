@@ -2,3 +2,15 @@
 <h2 class="text-center"><%= "Category: #{@restaurant.category}" %></h2>
 <h2 class="text-center"><%= "Phone: #{@restaurant.phone_number}" %></h2>
 <h2 class="text-center"><%= "Address: #{@restaurant.address}" %></h2>
+<%= link_to "Leave a Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary"%>
+
+<h2>Reviews:</h2>
+<ul class="list-group">
+<% @restaurant.reviews.each do |review| %>
+<li class="list-group-item">
+<p><%= "Score: #{review.rating}" %></p>
+<p><%= review.content %></p>
+
+</li>
+<% end %>
+</ul>
